@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>OpenStreetMap</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <style>
+        #mapid {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="mapid" th:data-latitudine="${latitudine}" th:data-longitudine="${longitudine}"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    var mapid = document.getElementById('mapid');
+    var latitudine = mapid.dataset.latitudine;
+    var longitudine = mapid.dataset.longitudine;
+
+    var map = L.map('mapid').setView([latitudine, longitudine], 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 20,
+    }).addTo(map);
+
+    map.on('click', function(e) {
+        var lat = e.latlng.lat;
+        var lon = e.latlng.lng;
+        alert("Copia le seguenti coordinate per creare il POI:\n {\"coordinates\": \"" + lat + "\", \"" + lon + "\"}");
+    });
+</script>
+</body>
+</html>

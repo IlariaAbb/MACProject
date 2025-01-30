@@ -1,0 +1,5 @@
+package it.unicam.model.utenti;
+
+public enum Ruolo {
+    TURISTAUTENTICATO, CONTRIBUTOR, CONTRIBUTORAUTORIZZATO, CURATORE, ANIMATORE, GESTORE;
+}

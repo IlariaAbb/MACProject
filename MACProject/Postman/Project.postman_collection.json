@@ -1,0 +1,1525 @@
+{
+	"info": {
+		"_postman_id": "d55e1189-89dd-4a56-88cf-87b1489484ec",
+		"name": "Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31463869"
+	},
+	"item": [
+		{
+			"name": "login Curatore",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true,
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "ilaria",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8080/login"
+			},
+			"response": []
+		},
+		{
+			"name": "login Gestore",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true,
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "andrea",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8080/login"
+			},
+			"response": []
+		},
+		{
+			"name": "login AContributor",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true,
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "ProLoco",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8080/login"
+			},
+			"response": []
+		},
+		{
+			"name": "login Animatore",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true,
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "daniele",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8080/login"
+			},
+			"response": []
+		},
+		{
+			"name": "login Contributor",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true,
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "negozioXY",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8080/login"
+			},
+			"response": []
+		},
+		{
+			"name": "login ATurista",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true,
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "lisa",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8080/login"
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "localhost:8080/logout"
+			},
+			"response": []
+		},
+		{
+			"name": "addComune",
+			"protocolProfileBehavior": {
+				"followRedirects": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Camerino\",\r\n    \"coordinate\": {\r\n        \"latitudine\": \"1.0\",\r\n        \"longitudine\": \"1.0\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/comune/gestore/addComune"
+			},
+			"response": []
+		},
+		{
+			"name": "insertPOI",
+			"protocolProfileBehavior": {
+				"followRedirects": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "poi",
+							"value": "{\n    \"nome\": \"prova\",\n    \"descrizione\": \"pro\",\n    \"coordinate\": {\n        \"latitudine\": \"1.0\",\n        \"longitudine\": \"1.0\"\n    },\n    \"type\": \"LUOGO\"\n}",
+							"contentType": "application/json",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/acontributor/insertPOI"
+			},
+			"response": []
+		},
+		{
+			"name": "insertPOIEvento",
+			"protocolProfileBehavior": {
+				"followRedirects": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "poi",
+							"value": "{\n    \"nome\": \"prova\",\n    \"descrizione\": \"pro\",\n    \"coordinate\": {\n        \"latitudine\": \"1.0\",\n        \"longitudine\": \"1.0\"\n    },\n    \"type\": \"EVENTO\",\n\"openingDate\": \"2024-02-27T12:09:49\",\n\"closingDate\": \"2024-02-27T12:09:49\"\n}",
+							"contentType": "application/json",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/acontributor/insertPOI"
+			},
+			"response": []
+		},
+		{
+			"name": "insertPendingPOI",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "poi",
+							"value": "{\n    \"nome\": \"prova\",\n    \"descrizione\": \"pro\",\n    \"coordinate\": {\n        \"latitudine\": \"1.0\",\n        \"longitudine\": \"1.0\"\n    },\n    \"type\": \"LUOGO\"\n}",
+							"contentType": "application/json",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/contributor/insertPendingPOI"
+			},
+			"response": []
+		},
+		{
+			"name": "insertContenutoAPOI",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idPOI",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "{ \"nome\": \"test\", \"descrizione\": \"testdeesc\"}",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/acontributor/insertContentToPOI"
+			},
+			"response": []
+		},
+		{
+			"name": "insertContenutoPendingAPOI",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idPOI",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "{ \"nome\": \"test\", \"descrizione\": \"testdeesc\"}",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/contributor/insertContenutoPendingAPOI"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllPOI",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "comuneId",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/getAllPOI"
+			},
+			"response": []
+		},
+		{
+			"name": "viewSelectPOI",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idPOI",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/viewSelectPOI"
+			},
+			"response": []
+		},
+		{
+			"name": "creaItinerario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "itinerario",
+							"value": "{ \"nome\": \"test\", \"descrizione\": \"testdeesc\"}",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "pois",
+							"value": "1, 3",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/acontributor/creaItinerario"
+			},
+			"response": []
+		},
+		{
+			"name": "creaItinerarioValido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "itinerario",
+							"value": "{ \"nome\": \"test\", \"descrizione\": \"testdeesc\", \"DataApertura\": \"2024-12-27T12:09:49\", \"DataChiusura\": \"2024-12-27T12:19:49\" }",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "pois",
+							"value": "1, 3",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/acontributor/creaItinerario"
+			},
+			"response": []
+		},
+		{
+			"name": "creaItinerarioPending",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "itinerario",
+							"value": "{ \"nome\": \"test\", \"descrizione\": \"testdeesc\"}",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "pois",
+							"value": "1, 3",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/contributor/creaItinerarioPending"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllItinerario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "comuneId",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/getAllItinerario"
+			},
+			"response": []
+		},
+		{
+			"name": "viewItinerario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idItinerary",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/viewItinerario"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllPendingPOI",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/curatore/getAllPendingPOI"
+			},
+			"response": []
+		},
+		{
+			"name": "validazioneSelectPOI",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/curatore/validazioneSelectPOI"
+			},
+			"response": []
+		},
+		{
+			"name": "deletePendingPOI",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "6",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/curatore/deletePendingPOI"
+			},
+			"response": []
+		},
+		{
+			"name": "deletePOI",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/curatore/deletePOI"
+			},
+			"response": []
+		},
+		{
+			"name": "viewPendingPOI",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/curatore/viewPendingPOI"
+			},
+			"response": []
+		},
+		{
+			"name": "viewContenuto",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idPOI",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idContenuto",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/viewContenuto"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteItinerario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/curatore/deleteItinerario"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteContenuto",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idPOI",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/curatore/deleteContenuto"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllContenutoPendingPOI",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/curatore/getAllContenutoPendingPOI"
+			},
+			"response": []
+		},
+		{
+			"name": "viewContenutoPending",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idPOI",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/curatore/viewContenutoPending"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteContenutoPending",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idPOI",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/curatore/deleteContenutoPending"
+			},
+			"response": []
+		},
+		{
+			"name": "validazioneSelectContenuto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idPOI",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/curatore/validazioneSelectContenuto"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllItinerarioPending",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/curatore/getAllItinerarioPending"
+			},
+			"response": []
+		},
+		{
+			"name": "viewItinerarioPending",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/curatore/viewItinerarioPending"
+			},
+			"response": []
+		},
+		{
+			"name": "validazioneSelectItinerario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/curatore/validazioneSelectItinerario"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteItinerarioPending",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/comune/curatore/deleteItinerarioPending"
+			},
+			"response": []
+		},
+		{
+			"name": "creaContest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"prova2\",\r\n    \"obj\": \"blablabla\",\r\n    \"suInvito\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/contests/animatore/creaContest"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllContestSuInvitoAperti",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/contests/animatore/getAllContestSuInvitoAperti"
+			},
+			"response": []
+		},
+		{
+			"name": "invitareContributor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idContributor",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/contests/animatore/invitareContributor"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllContest",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": "localhost:8080/contests/contributor/getAllContest"
+			},
+			"response": []
+		},
+		{
+			"name": "partecipazioneContest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "contenuto",
+							"value": "{ \"nome\": \"test\", \"descrizione\": \"testdeesc\"}",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file"
+						}
+					]
+				},
+				"url": "localhost:8080/contests/contributor/partecipazioneContest"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllContestAperti",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/contests/animatore/getAllContestAperti"
+			},
+			"response": []
+		},
+		{
+			"name": "viewContenutoContestPending",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/contests/animatore/viewContenutoContestPending"
+			},
+			"response": []
+		},
+		{
+			"name": "selectContenutoContest",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idContest",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/contests/animatore/selectContenutoContest"
+			},
+			"response": []
+		},
+		{
+			"name": "validazioneContenutoContest",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idContest",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/contests/animatore/validazioneContenutoContest"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteContenutoContest",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idContest",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/contests/animatore/deleteContenutoContestPending"
+			},
+			"response": []
+		},
+		{
+			"name": "viewSelectContenutoValidatoContest",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idContest",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/contests/contributor/viewSelectContenutoValidatoContest"
+			},
+			"response": []
+		},
+		{
+			"name": "selectContestVincitore",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idContest",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/contests/animatore/selectContestVincitore"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllContests",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/contests/contributor/getAllContests"
+			},
+			"response": []
+		},
+		{
+			"name": "viewSelectContenutoValidatoContest",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idContest",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "4",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/contests/contibutor/viewSelectContenutoValidatoContest"
+			},
+			"response": []
+		},
+		{
+			"name": "richiestaCambioRuolo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": "localhost:8080/user/atourist/richiestaCambioRuolo"
+			},
+			"response": []
+		},
+		{
+			"name": "viewRichiesteCambioRuolo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/user/gestore/viewRichiesteCambioRuolo"
+			},
+			"response": []
+		},
+		{
+			"name": "disapprovazioneRichiesta",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/user/gestore/disapprovazioneRichiesta"
+			},
+			"response": []
+		},
+		{
+			"name": "approvazioneRichiesta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/user/gestore/approvazioneRichiesta"
+			},
+			"response": []
+		},
+		{
+			"name": "viewAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/user/gestore/viewAllUtenti"
+			},
+			"response": []
+		},
+		{
+			"name": "cambioRuolo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "ruolo",
+							"value": "CONTRIBUTOR",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/user/gestore/cambioRuolo"
+			},
+			"response": []
+		},
+		{
+			"name": "registrazioneUtente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "prova@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "ilaria",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "prova",
+							"type": "text"
+						},
+						{
+							"key": "ruolo",
+							"value": "CONTRIBUTOR",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/user/registrazioneUtente"
+			},
+			"response": []
+		},
+		{
+			"name": "viewRegistrazioneUtente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/user/gestore/viewRegistrazioneUtente"
+			},
+			"response": []
+		},
+		{
+			"name": "registrazioneRespinta",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/user/gestore/registrazioneRespinta"
+			},
+			"response": []
+		},
+		{
+			"name": "approvazioneRegistrazione",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "7",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/user/gestore/approvazioneRegistrazione"
+			},
+			"response": []
+		},
+		{
+			"name": "addPOIAiPreferiti",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idPOI",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/user/atourist/addPOIAiPreferiti"
+			},
+			"response": []
+		},
+		{
+			"name": "addItinerarioAiPreferiti",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "idItinerario",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "idComune",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "localhost:8080/user/atourist/addItinerarioAiPreferiti"
+			},
+			"response": []
+		},
+		{
+			"name": "viewPOIPreferiti",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/user/atourist/viewPOIPreferiti"
+			},
+			"response": []
+		},
+		{
+			"name": "viewItinerariPreferiti",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/user/atourist/viewItinerariPreferiti"
+			},
+			"response": []
+		}
+	]
+}
