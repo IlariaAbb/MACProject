@@ -91,7 +91,7 @@ import java.io.IOException;
 				return new ResponseEntity<>(viewController.viewContenuto(idComune, poiID, idContenuto), HttpStatus.OK); 
 		} 
 
-		@PostMapping("/contributor/insertPOI") 
+		@PostMapping("/acontributor/insertPOI") 
 		public ResponseEntity<Object> insertPOI(@RequestParam("idComune") Long idComune, @Valid @RequestPart("poi") POIFD p) { 
 			POIFactory pf; 
 			switch (p.getTipo()){ 
@@ -125,7 +125,7 @@ import java.io.IOException;
 			return new ResponseEntity<>("ok", HttpStatus.OK); 
 		} 
  
-		@PostMapping("/contributor/creaItinerario") 
+		@PostMapping("/acontributor/creaItinerario") 
 		public ResponseEntity<Object> creaItinerario(@RequestParam("idComune") Long idComune, @Valid @RequestPart("itinerario") ItinerarioFD i, @RequestParam("pois") Long [] pois) { 
 			if(pois.length < 2) 
 				return new ResponseEntity<>("Errore: Itinerario deve contenere almeno 2 POI", HttpStatus.BAD_REQUEST); 
@@ -226,7 +226,7 @@ import java.io.IOException;
 				return new ResponseEntity<>(viewController.viewContenutoPendingPOI(c.getIdComune(), idPOI, idContenuto), HttpStatus.OK); 
 		} 
 
-		@PostMapping("/contributor/insertContenutoAPOI") 
+		@PostMapping("/acontributor/insertContenutoAPOI") 
 		public ResponseEntity<Object> insertContenutoAPOI(@RequestParam("idComune") Long idComune, @RequestParam("idPOI") Long id, @Valid @RequestPart("contenuto") ContenutoFD c, @RequestPart("file") MultipartFile file) { 
 			try { 
 				c.addFile(file.getBytes()); 
