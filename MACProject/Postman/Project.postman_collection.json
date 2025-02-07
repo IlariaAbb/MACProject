@@ -252,7 +252,7 @@
 						},
 						{
 							"key": "poi",
-							"value": "{\n    \"nome\": \"prova\",\n    \"descrizione\": \"pro\",\n    \"coordinate\": {\n        \"latitudine\": \"1.0\",\n        \"longitudine\": \"1.0\"\n    },\n    \"type\": \"LUOGO\"\n}",
+							"value": "{\n    \"nome\": \"prova\",\n    \"descrizione\": \"pro\",\n    \"coordinate\": {\n        \"latitudine\": \"1.0\",\n        \"longitudine\": \"1.0\"\n    },\n    \"tipo\": \"LUOGO\"\n}",
 							"contentType": "application/json",
 							"type": "text"
 						}
@@ -286,7 +286,7 @@
 						},
 						{
 							"key": "poi",
-							"value": "{\n    \"nome\": \"prova\",\n    \"descrizione\": \"pro\",\n    \"coordinate\": {\n        \"latitudine\": \"1.0\",\n        \"longitudine\": \"1.0\"\n    },\n    \"type\": \"EVENTO\",\n\"openingDate\": \"2024-02-27T12:09:49\",\n\"closingDate\": \"2024-02-27T12:09:49\"\n}",
+							"value": "{\n    \"nome\": \"prova\",\n    \"descrizione\": \"pro\",\n    \"coordinate\": {\n        \"latitudine\": \"1.0\",\n        \"longitudine\": \"1.0\"\n    },\n    \"tipo\": \"EVENTO\",\n\"openingDate\": \"2024-02-27T12:09:49\",\n\"closingDate\": \"2024-02-27T12:09:49\"\n}",
 							"contentType": "application/json",
 							"type": "text"
 						}
@@ -311,7 +311,7 @@
 						},
 						{
 							"key": "poi",
-							"value": "{\n    \"nome\": \"prova\",\n    \"descrizione\": \"pro\",\n    \"coordinate\": {\n        \"latitudine\": \"1.0\",\n        \"longitudine\": \"1.0\"\n    },\n    \"type\": \"LUOGO\"\n}",
+							"value": "{\n    \"nome\": \"prova\",\n    \"descrizione\": \"pro\",\n    \"coordinate\": {\n        \"latitudine\": \"1.0\",\n        \"longitudine\": \"1.0\"\n    },\n    \"tipo\": \"LUOGO\"\n}",
 							"contentType": "application/json",
 							"type": "text"
 						}
