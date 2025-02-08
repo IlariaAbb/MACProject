@@ -401,7 +401,7 @@
 					"mode": "formdata",
 					"formdata": [
 						{
-							"key": "comuneId",
+							"key": "idComune",
 							"value": "1",
 							"type": "text"
 						}
@@ -540,7 +540,7 @@
 					"mode": "formdata",
 					"formdata": [
 						{
-							"key": "comuneId",
+							"key": "idComune",
 							"value": "1",
 							"type": "text"
 						}
