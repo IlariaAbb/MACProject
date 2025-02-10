@@ -578,7 +578,7 @@
 			"response": []
 		},
 		{
-			"name": "getAllPendingPOI",
+			"name": "getAllPOIPending",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -595,7 +595,7 @@
 						}
 					]
 				},
-				"url": "localhost:8080/comune/curatore/getAllPendingPOI"
+				"url": "localhost:8080/comune/curatore/getAllPOIPending"
 			},
 			"response": []
 		},
