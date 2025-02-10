@@ -165,7 +165,7 @@ import java.io.IOException;
 				return new ResponseEntity<>(viewController.selectItinerario(idComune, idItinerario), HttpStatus.OK); 
 		} 
 
-		@GetMapping("/curator/getAllPOIPending") 
+		@GetMapping("/curatore/getAllPOIPending") 
 		public ResponseEntity<Object> getAllPOIPending(Authentication authentication){ 
 			Comune c = this.comuneRepository.findByCuratore(this.utenteAutenticatoRepository.findByUsername(authentication.getName())); 
 			if (c == null) 
@@ -174,7 +174,7 @@ import java.io.IOException;
 				return new ResponseEntity<>(c.getAllPOIPending(), HttpStatus.OK); 
 		} 
 
-		@GetMapping("/curator/viewPendingPOI") 
+		@GetMapping("/curatore/viewPendingPOI") 
 		public ResponseEntity<Object> viewPendingPOI(Authentication authentication, @RequestParam("id") Long id){ 
 			Comune c = this.comuneRepository.findByCuratore(this.utenteAutenticatoRepository.findByUsername(authentication.getName())); 
 			if(c == null) 
