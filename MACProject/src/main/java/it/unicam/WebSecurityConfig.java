@@ -41,7 +41,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/comune/contributor/**").hasRole("CONTRIBUTOR")
                         .requestMatchers("/comune/acontributor/**").hasAnyRole("CONTRIBUTORAUTORIZZATO", "CURATORE")
                         .requestMatchers("/contests/animator/**").hasRole("ANIMATORE")
-                        .requestMatchers("/comune/curator/**").hasRole("CURATORE")
+                        .requestMatchers("/comune/curatore/**").hasRole("CURATORE")
                         .requestMatchers("/comune/gestore/**", "/utente/gestore/**").hasRole("GESTORE")
                         .anyRequest().authenticated()
                 )
