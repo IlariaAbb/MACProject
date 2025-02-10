@@ -108,8 +108,8 @@ import java.io.IOException;
 			return new ResponseEntity<>("ok", HttpStatus.OK); 
 		} 
 
-		@PostMapping("/contributor/insertPOIPending") 
-		public ResponseEntity<Object> insertPOIPending(@RequestParam("idComune") Long idComune, @Valid @RequestPart("poi") POIFD p) { 
+		@PostMapping("/contributor/insertPendingPOI") 
+		public ResponseEntity<Object> insertPendingPOI(@RequestParam("idComune") Long idComune, @Valid @RequestPart("poi") POIFD p) { 
 			POIFactory pf; 
 			switch (p.getTipo()){ 
 				case Tipo.LUOGO -> pf = new POILuogoFactory(); 
@@ -165,8 +165,8 @@ import java.io.IOException;
 				return new ResponseEntity<>(viewController.selectItinerario(idComune, idItinerario), HttpStatus.OK); 
 		} 
 
-		@GetMapping("/curator/getAllPendingPOI") 
-		public ResponseEntity<Object> getAllPendingPOI(Authentication authentication){ 
+		@GetMapping("/curator/getAllPOIPending") 
+		public ResponseEntity<Object> getAllPOIPending(Authentication authentication){ 
 			Comune c = this.comuneRepository.findByCuratore(this.utenteAutenticatoRepository.findByUsername(authentication.getName())); 
 			if (c == null) 
 				return new ResponseEntity<>("Errore: Comune non trovato", HttpStatus.BAD_REQUEST); 
@@ -292,10 +292,10 @@ import java.io.IOException;
 				return new ResponseEntity<>("ok", HttpStatus.OK); 
 		} 
 
-		@GetMapping("/curatore/getAllContentutoPendingPOI") 
-		public ResponseEntity<Object> getAllContentutoPendingPOI(Authentication authentication){ 
+		@GetMapping("/curatore/getAllContenutoPendingPOI") 
+		public ResponseEntity<Object> getAllContenutoPendingPOI(Authentication authentication){ 
 			Comune c = this.comuneRepository.findByCuratore(this.utenteAutenticatoRepository.findByUsername(authentication.getName())); 
-			return new ResponseEntity<>(c.getAllContentutoPendingPOI(), HttpStatus.OK); 
+			return new ResponseEntity<>(c.getAllContenutoPendingPOI(), HttpStatus.OK); 
 		} 
 
 		@GetMapping("/curatore/viewPendingContenuto") 
@@ -308,13 +308,13 @@ import java.io.IOException;
 				return new ResponseEntity<>(c, HttpStatus.OK); 
 		} 
 
-		@DeleteMapping("/curatore/deletePendingContenuto") 
-		public ResponseEntity<Object> deletePendingContenuto(Authentication authentication, @RequestParam("idPOI") Long idPOI, @RequestParam("id") Long id) { 
+		@DeleteMapping("/curatore/deleteContenutoPending") 
+		public ResponseEntity<Object> deleteContenutoPending(Authentication authentication, @RequestParam("idPOI") Long idPOI, @RequestParam("id") Long id) { 
 			Comune c = this.comuneRepository.findByCuratore(this.utenteAutenticatoRepository.findByUsername(authentication.getName())); 
 			if(viewController.selectContenutoPending(c.getIdComune(), idPOI, id) == null) 
 				return new ResponseEntity<>("Errore: Contenuto non trovato tra i contenuti in pending", HttpStatus.BAD_REQUEST); 
 			else { 
-				c.deletePendingContenuto(idPOI, id); 
+				c.deleteContenutoPending(idPOI, id); 
 				this.comuneRepository.save(c); 
 				this.contenutoRepository.deleteById(id); 
 				return new ResponseEntity<>("ok", HttpStatus.OK); 

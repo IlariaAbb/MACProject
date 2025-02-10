@@ -200,7 +200,7 @@ public class Comune {
 		this.ValidazionePOI.stream().filter(poi -> poi.getIdPOI().equals(IdPOI)).findFirst().get().deleteContenuto(idContenuto); 
 	} 
 
-	public List<POIGI> getAllContentutoPendingPOI() { 
+	public List<POIGI> getAllContenutoPendingPOI() { 
 		return this.ValidazionePOI.stream().filter(p -> !p.getContenutiPending().isEmpty()).map(p->p.getInfoGeneraliPOI()).toList(); 
 	} 
 
@@ -209,7 +209,7 @@ public class Comune {
 				.getContenutiPending().stream().filter(c -> c.getIdContenuto().equals(idContenuto)).findFirst().get().getInfoDettagliateContenuto(); 
 	} 
 
-	public void deletePendingContenuto(Long IdPOI, Long idContenuto) { 
+	public void deleteContenutoPending(Long IdPOI, Long idContenuto) { 
 		POI p = this.ValidazionePOI.stream().filter(poi -> poi.getIdPOI().equals(IdPOI)).findFirst().get(); 
 		p.deleteContenutoPending(idContenuto); 
 	} 
