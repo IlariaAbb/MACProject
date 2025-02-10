@@ -1290,7 +1290,7 @@
 					"mode": "formdata",
 					"formdata": []
 				},
-				"url": "localhost:8080/user/atourist/richiestaCambioRuolo"
+				"url": "localhost:8080/utente/atourist/richiestaCambioRuolo"
 			},
 			"response": []
 		},
@@ -1299,7 +1299,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "localhost:8080/user/gestore/viewRichiesteCambioRuolo"
+				"url": "localhost:8080/utente/gestore/viewRichiesteCambioRuolo"
 			},
 			"response": []
 		},
@@ -1318,7 +1318,7 @@
 						}
 					]
 				},
-				"url": "localhost:8080/user/gestore/disapprovazioneRichiesta"
+				"url": "localhost:8080/utente/gestore/disapprovazioneRichiesta"
 			},
 			"response": []
 		},
@@ -1337,7 +1337,7 @@
 						}
 					]
 				},
-				"url": "localhost:8080/user/gestore/approvazioneRichiesta"
+				"url": "localhost:8080/utente/gestore/approvazioneRichiesta"
 			},
 			"response": []
 		},
@@ -1346,7 +1346,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "localhost:8080/user/gestore/viewAllUtenti"
+				"url": "localhost:8080/utente/gestore/viewAllUtenti"
 			},
 			"response": []
 		},
@@ -1370,7 +1370,7 @@
 						}
 					]
 				},
-				"url": "localhost:8080/user/gestore/cambioRuolo"
+				"url": "localhost:8080/utente/gestore/cambioRuolo"
 			},
 			"response": []
 		},
@@ -1404,7 +1404,7 @@
 						}
 					]
 				},
-				"url": "localhost:8080/user/registrazioneUtente"
+				"url": "localhost:8080/utente/registrazioneUtente"
 			},
 			"response": []
 		},
@@ -1413,7 +1413,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "localhost:8080/user/gestore/viewRegistrazioneUtente"
+				"url": "localhost:8080/utente/gestore/viewRegistrazioneUtente"
 			},
 			"response": []
 		},
@@ -1432,7 +1432,7 @@
 						}
 					]
 				},
-				"url": "localhost:8080/user/gestore/registrazioneRespinta"
+				"url": "localhost:8080/utente/gestore/registrazioneRespinta"
 			},
 			"response": []
 		},
@@ -1451,7 +1451,7 @@
 						}
 					]
 				},
-				"url": "localhost:8080/user/gestore/approvazioneRegistrazione"
+				"url": "localhost:8080/utente/gestore/approvazioneRegistrazione"
 			},
 			"response": []
 		},
@@ -1475,7 +1475,7 @@
 						}
 					]
 				},
-				"url": "localhost:8080/user/atourist/addPOIAiPreferiti"
+				"url": "localhost:8080/utente/atourist/addPOIAiPreferiti"
 			},
 			"response": []
 		},
@@ -1499,7 +1499,7 @@
 						}
 					]
 				},
-				"url": "localhost:8080/user/atourist/addItinerarioAiPreferiti"
+				"url": "localhost:8080/utente/atourist/addItinerarioAiPreferiti"
 			},
 			"response": []
 		},
@@ -1508,7 +1508,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "localhost:8080/user/atourist/viewPOIPreferiti"
+				"url": "localhost:8080/utente/atourist/viewPOIPreferiti"
 			},
 			"response": []
 		},
@@ -1517,7 +1517,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "localhost:8080/user/atourist/viewItinerariPreferiti"
+				"url": "localhost:8080/utente/atourist/viewItinerariPreferiti"
 			},
 			"response": []
 		}
