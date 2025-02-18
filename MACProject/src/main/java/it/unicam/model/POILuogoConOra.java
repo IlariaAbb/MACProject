@@ -11,8 +11,8 @@ import java.util.List;
 @Entity
 public class POILuogoConOra extends POI{
 
-    private LocalTime[] dataApertura = new LocalTime[7];
-    private LocalTime[] dataChiusura = new LocalTime[7];
+    private LocalTime[] oraApertura = new LocalTime[7];
+    private LocalTime[] oraChiusura = new LocalTime[7];
 
     public POILuogoConOra(Coordinate coordinata) {
         super(coordinata);
@@ -49,17 +49,17 @@ public class POILuogoConOra extends POI{
         return super.getCoordinata();
     }
     
-    public LocalTime[] gatDataApertura() {
-        return dataApertura;
+    public LocalTime[] getOraApertura() {
+        return oraApertura;
     }
 
-    public LocalTime[] getDataChiusura() {
-        return dataChiusura;
+    public LocalTime[] getOraChiusura() {
+        return oraChiusura;
     }
 
-    public void insertTempo(LocalTime[] dataApertura, LocalTime[] dataChiusura) {
-        this.dataApertura = dataApertura;
-        this.dataChiusura = dataChiusura;
+    public void insertTempo(LocalTime[] oraApertura, LocalTime[] oraChiusura) {
+        this.oraApertura = oraApertura;
+        this.oraChiusura = oraChiusura;
     }
 
     @Override
@@ -93,7 +93,7 @@ public class POILuogoConOra extends POI{
     public POIFD getInfoDettagliatePOI(){
         List<ContenutoGI> contenutiGI = this.getContenuti().stream().map(c -> c.getInfoGeneraliContenuto()).toList();
         List<ContenutoGI> contenutiPendingGI = this.getContenutiPending().stream().map(pc -> pc.getInfoGeneraliContenuto()).toList();
-        return new POIFD(this.getIdPOI(), this.getNome(), this.getDescrizione(), this.getCoordinata(), this.getTipo(), this.dataApertura, this.dataChiusura, contenutiGI, contenutiPendingGI);
+        return new POIFD(this.getIdPOI(), this.getNome(), this.getDescrizione(), this.getCoordinata(), this.getTipo(), this.oraApertura, this.oraChiusura, contenutiGI, contenutiPendingGI);
     }
 
 }

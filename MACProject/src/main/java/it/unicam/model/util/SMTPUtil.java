@@ -15,8 +15,8 @@ public class SMTPUtil {
             msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
             msg.addHeader("format", "flowed");
             msg.addHeader("Content-Transfer-Encoding", "8bit");
-            msg.setFrom(new InternetAddress("insertemail", "Test"));//inserire email
-            msg.setReplyTo(InternetAddress.parse("insertemail", false));//inserire email
+            msg.setFrom(new InternetAddress("insertemail", "Test"));
+            msg.setReplyTo(InternetAddress.parse("insertemail", false));
             msg.setSubject(subject, "UTF-8");
             msg.setText(body, "UTF-8");
             msg.setSentDate(new Date());
@@ -28,14 +28,13 @@ public class SMTPUtil {
         }
     }
 
-    public static Session createSession() {//sessione con server smtp di gmail
+    public static Session createSession() {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com"); // Indirizzo del server SMTP
-        props.put("mail.smtp.port", "587"); // Porta del server SMTP
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
 
-        // Necessarie credenziali di autenticazione
         String username = "insertemail";
         String password = "insertpassword";
 

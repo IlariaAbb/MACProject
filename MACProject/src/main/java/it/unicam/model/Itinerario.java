@@ -13,10 +13,12 @@ public class Itinerario {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "itinerary_id_seq")
     private Long id;
+
     private String nome;
     private String descrizione;
     private LocalDateTime dataApertura = null;
     private LocalDateTime dataChiusura = null;
+
     @ManyToMany
     private List<POI> POIs;
 
@@ -30,12 +32,24 @@ public class Itinerario {
         this.POIs = new ArrayList<>();
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getNome() {
         return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public String getDescrizione() {
         return descrizione;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
     }
 
     public LocalDateTime getDataApertura() {
@@ -62,17 +76,27 @@ public class Itinerario {
         this.POIs = POIs;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-
     public ItinerarioGI getInfoGeneraliItinerario(){
-        return new ItinerarioGI(this.id, this.nome, this.descrizione, this.dataApertura, this.dataChiusura);
+        return new ItinerarioGI(
+                this.id,
+                this.nome,
+                this.descrizione,
+                this.dataApertura,
+                this.dataChiusura
+        );
     }
 
     public ItinerarioFD getInfoDettagliateItinerario(){
-        return new ItinerarioFD(this.id, this.nome, this.descrizione, this.dataApertura, this.dataChiusura, this.POIs.stream().map(poi -> poi.getInfoGeneraliPOI()).toList());
+        return new ItinerarioFD(
+                this.id,
+                this.nome,
+                this.descrizione,
+                this.dataApertura,
+                this.dataChiusura,
+                this.POIs.stream()
+                         .map(poi -> poi.getInfoGeneraliPOI())
+                         .toList()
+        );
     }
 
     public void addPOI(POI p){

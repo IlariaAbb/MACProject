@@ -1,7 +1,6 @@
 package it.unicam;
 
-import it.unicam.model.Comune;
-import it.unicam.model.Coordinate;
+import it.unicam.model.*;
 import it.unicam.model.utenti.GestioneUtentiAutenticati;
 import it.unicam.model.utenti.Ruolo;
 import it.unicam.model.utenti.UtenteAutenticato;
@@ -17,31 +16,52 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class LoadDatabase {
 
     @Autowired
-    PasswordEncoder PasswordEncoder;
+    private PasswordEncoder passwordEncoder;
 
-     @Bean
-     CommandLineRunner initDatabase(UtenteAutenticatoRepository repository, GestioneUtentiAutenticati gestioneUtentiAutenticati, ComuneRepository comuneRepository) {
-         return args -> {
-             UtenteAutenticato u1 = new UtenteAutenticato("Lisa", PasswordEncoder.encode("pass"), "lisa@gmail.it", Ruolo.TURISTAUTENTICATO);
-             UtenteAutenticato u2 = new UtenteAutenticato("NegozioXY", PasswordEncoder.encode("pass"), "negozioxy@gmail.it", Ruolo.CONTRIBUTOR);
-             UtenteAutenticato u3 = new UtenteAutenticato("ProLoco", PasswordEncoder.encode("pass"), "proloco@gmail.it", Ruolo.CONTRIBUTORAUTORIZZATO);
-             UtenteAutenticato u4 = new UtenteAutenticato("Andrea", PasswordEncoder.encode("pass"), "andrea@gmail.it", Ruolo.GESTORE);
-             UtenteAutenticato u5 = new UtenteAutenticato("Ilaria", PasswordEncoder.encode("pass"), "ilaria@gmail.it", Ruolo.CURATORE);
-             UtenteAutenticato u6 = new UtenteAutenticato("Daniele", PasswordEncoder.encode("pass"), "daniele@gmail.it", Ruolo.ANIMATORE);
-             repository.save(u1);
-             repository.save(u2);
-             repository.save(u3);
-             repository.save(u4);
-             repository.save(u5);
-             repository.save(u6);
-             gestioneUtentiAutenticati.addUtente(u1);
-             gestioneUtentiAutenticati.addUtente(u2);
-             gestioneUtentiAutenticati.addUtente(u3);
-             gestioneUtentiAutenticati.addUtente(u4);
-             gestioneUtentiAutenticati.addUtente(u5);
-             gestioneUtentiAutenticati.addUtente(u6);
-             comuneRepository.save(new Comune("Camerino",new Coordinate(43.1351,13.0683), u5));
-         };
-     }
+    @Bean
+    CommandLineRunner initDatabase(UtenteAutenticatoRepository userRepo,
+                                   GestioneUtentiAutenticati gestioneUtenti,
+                                   ComuneRepository comuneRepo) {
+        return args -> {
 
+            UtenteAutenticato u1 = new UtenteAutenticato("Lisa", passwordEncoder.encode("pass"), "lisa@gmail.it", Ruolo.TURISTAUTENTICATO);
+            UtenteAutenticato u2 = new UtenteAutenticato("NegozioXY", passwordEncoder.encode("pass"), "negozioxy@gmail.it", Ruolo.CONTRIBUTOR);
+            UtenteAutenticato u3 = new UtenteAutenticato("ProLoco", passwordEncoder.encode("pass"), "proloco@gmail.it", Ruolo.CONTRIBUTORAUTORIZZATO);
+            UtenteAutenticato u4 = new UtenteAutenticato("Andrea", passwordEncoder.encode("pass"), "andrea@gmail.it", Ruolo.GESTORE);
+            UtenteAutenticato u5 = new UtenteAutenticato("Ilaria", passwordEncoder.encode("pass"), "ilaria@gmail.it", Ruolo.CURATORE);
+            UtenteAutenticato u6 = new UtenteAutenticato("Daniele", passwordEncoder.encode("pass"), "daniele@gmail.it", Ruolo.ANIMATORE);
+
+            userRepo.save(u1);
+            userRepo.save(u2);
+            userRepo.save(u3);
+            userRepo.save(u4);
+            userRepo.save(u5);
+            userRepo.save(u6);
+
+            gestioneUtenti.addUtente(u1);
+            gestioneUtenti.addUtente(u2);
+            gestioneUtenti.addUtente(u3);
+            gestioneUtenti.addUtente(u4);
+            gestioneUtenti.addUtente(u5);
+            gestioneUtenti.addUtente(u6);
+
+            Comune comune = new Comune("Camerino", new Coordinate(43.1351,13.0683), u5);
+
+            // Costruttore del Comune inserisce già un POI logico corrispondente al Comune (validato).
+            // POI addizionale di test
+            POILuogo testPOI = new POILuogo(new Coordinate(43.1352,13.0684));
+            testPOI.insertInfoPOI("POI_Valido", "POI di test già validato");
+            comune.insertPOI(testPOI);
+            // Per testing si utilizza un contenuto vuoto, in produzione si dovrà implementare un sistema di upload
+            Contenuto contenutoValido = new Contenuto(
+                    "ContenutoValido",
+                    "Descrizione di test",
+                    new byte[0] // Nessun file
+            );
+            testPOI.addContenuto(contenutoValido);
+            comuneRepo.save(comune);
+
+            System.out.println("Database inizializzato con utenti, comune e un POI+Contenuto validati!");
+        };
+    }
 }

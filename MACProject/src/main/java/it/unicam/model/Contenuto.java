@@ -10,11 +10,12 @@ public class Contenuto {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "content_generator")
     private Long idContenuto;
+
     private String nome;
     private String descrizione;
+
     @Lob
     private byte[] file;
-
 
     public Contenuto(String Nome, String Descrizione, byte[] file){
         if (Nome == null || Descrizione == null || file == null){
@@ -27,7 +28,6 @@ public class Contenuto {
 
     public Contenuto() {
     }
-
 
     public String getNome() {
         return nome;
@@ -45,6 +45,17 @@ public class Contenuto {
         return this.idContenuto;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
+    public void setFile(byte[] file) {
+        this.file = file;
+    }
 
     public ContenutoGI getInfoGeneraliContenuto(){
         return new ContenutoGI(this.getIdContenuto(), this.getNome(), this.getDescrizione());

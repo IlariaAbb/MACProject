@@ -1,5 +1,7 @@
 package it.unicam.model.preferiti;
 
+import it.unicam.model.Itinerario;
+import it.unicam.model.POI;
 import it.unicam.model.utenti.GestioneUtentiAutenticati;
 import it.unicam.model.util.dtos.ItinerarioGI;
 import it.unicam.model.util.dtos.POIGI;
@@ -32,24 +34,26 @@ public class GestionePreferiti {
             return false;
         }
         if (!this.POIPreferitiRepository.existsById(new IdPOIPreferiti(idPOI, id))) {
-            this.POIPreferitiRepository.save(new POIPreferiti(this.poiRepository.findById(idPOI).get(), this.gestioneUtentiAutenticati.getUtente(id)));
+            this.POIPreferitiRepository.save(
+                    new POIPreferiti(this.poiRepository.findById(idPOI).get(),
+                                     this.gestioneUtentiAutenticati.getUtente(id)));
             return true;
         }
         return false;
     }
-
 
     public boolean addItinerarioAiPreferiti(Long id, Long idItinerario, Long idComune) {
         if (!this.itinerarioRepository.existsById(idItinerario)) {
             return false;
         }
         if (!this.itinerariPreferitiRepository.existsById(new IdItinerariPreferiti(idItinerario, id))) {
-            this.itinerariPreferitiRepository.save(new ItinerariPreferiti(this.itinerarioRepository.findById(idItinerario).get(), this.gestioneUtentiAutenticati.getUtente(id)));
+            this.itinerariPreferitiRepository.save(
+                    new ItinerariPreferiti(this.itinerarioRepository.findById(idItinerario).get(),
+                                           this.gestioneUtentiAutenticati.getUtente(id)));
             return true;
         }
         return false;
     }
-
 
     public List<POIGI> getAllPOIPreferiti(Long id) {
         List<POIGI> list = new ArrayList<>();
@@ -61,7 +65,6 @@ public class GestionePreferiti {
         return list;
     }
 
-
     public List<ItinerarioGI> getAllItinerariPreferiti(Long id) {
         List<ItinerarioGI> list = new ArrayList<>();
         this.itinerariPreferitiRepository.findAll().forEach(f -> {
@@ -72,13 +75,13 @@ public class GestionePreferiti {
         return list;
     }
 
-   public void deletePOI(Long id) {
+    public void deletePOI(Long id) {
         this.POIPreferitiRepository.findAll().forEach(f -> {
             if (f.getPoi().getIdPOI().equals(id)) {
                 this.POIPreferitiRepository.delete(f);
             }
         });
-   }
+    }
 
     public void deleteItinerario(Long id) {
         this.itinerariPreferitiRepository.findAll().forEach(f -> {
@@ -88,5 +91,21 @@ public class GestionePreferiti {
         });
     }
 
+    public boolean removePOIDaiPreferiti(Long idUtente, Long idPOI) {
+        IdPOIPreferiti compositeKey = new IdPOIPreferiti(idPOI, idUtente);
+        if (this.POIPreferitiRepository.existsById(compositeKey)) {
+            this.POIPreferitiRepository.deleteById(compositeKey);
+            return true;
+        }
+        return false;
+    }
 
+    public boolean removeItinerarioDaiPreferiti(Long idUtente, Long idItinerario) {
+        IdItinerariPreferiti compositeKey = new IdItinerariPreferiti(idItinerario, idUtente);
+        if (this.itinerariPreferitiRepository.existsById(compositeKey)) {
+            this.itinerariPreferitiRepository.deleteById(compositeKey);
+            return true;
+        }
+        return false;
+    }
 }
