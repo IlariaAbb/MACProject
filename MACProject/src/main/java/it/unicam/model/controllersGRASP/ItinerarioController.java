@@ -53,7 +53,6 @@ public class ItinerarioController {
         for (Long poi : pois) {
             it.addPOI(this.poiRepository.findById(poi).orElse(null));
         }
-        // Salviamo in "itinerariPendingModifica"
         Comune c = this.comuneRepository.findById(idComune).get();
         c.insertItinerarioModifica(it);
         this.comuneRepository.save(c);
