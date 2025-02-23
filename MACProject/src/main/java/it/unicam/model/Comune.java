@@ -315,7 +315,6 @@ public class Comune {
         this.itinerariPendingModifica.remove(pendingUpdate);
     }
 
-    // METODO MANCANTE PER RECUPERARE LA LISTA DI TUTTI GLI ITINERARI PENDING MODIFICA
     public List<Itinerario> getItinerariPendingModifica() {
         return this.itinerariPendingModifica;
     }
