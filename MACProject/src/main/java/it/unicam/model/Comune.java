@@ -4,9 +4,9 @@ import it.unicam.model.utenti.Ruolo;
 import it.unicam.model.utenti.UtenteAutenticato;
 import it.unicam.model.util.dtos.ContenutoFD;
 import it.unicam.model.util.dtos.ItinerarioFD;
+import it.unicam.model.util.dtos.ItinerarioGI;
 import it.unicam.model.util.dtos.POIFD;
 import it.unicam.model.util.dtos.POIGI;
-import it.unicam.model.util.dtos.ItinerarioGI;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -204,14 +204,12 @@ public class Comune {
     public ContenutoFD selectContenutoPending(Long IdPOI, Long idContenuto) {
         POI p = this.getPOI(IdPOI);
         if (p == null) return null;
-    
         Contenuto c = p.getContenutiPending().stream()
                 .filter(cc -> cc.getIdContenuto().equals(idContenuto))
                 .findFirst()
                 .orElse(null);
-    
         return (c == null) ? null : c.getInfoDettagliateContenuto();
-    }    
+    }
 
     public void insertItinerarioPending(Itinerario itinerario) {
         this.itinerariPending.add(itinerario);
@@ -223,7 +221,7 @@ public class Comune {
 
     public List<ItinerarioGI> getAllItinerario() {
         return this.itinerari.stream()
-                .map(it -> it.getInfoGeneraliItinerario())
+                .map(Itinerario::getInfoGeneraliItinerario)
                 .toList();
     }
 
@@ -237,7 +235,7 @@ public class Comune {
 
     public List<ItinerarioGI> getAllItinerarioPending() {
         return this.itinerariPending.stream()
-                .map(it -> it.getInfoGeneraliItinerario())
+                .map(Itinerario::getInfoGeneraliItinerario)
                 .toList();
     }
 
@@ -278,7 +276,7 @@ public class Comune {
     public List<Long> notItinerario(){
         return this.itinerari.stream()
                 .filter(i -> i.getPOIs().size() < 2)
-                .map(i -> i.getId())
+                .map(Itinerario::getId)
                 .toList();
     }
 
@@ -317,9 +315,12 @@ public class Comune {
         this.itinerariPendingModifica.remove(pendingUpdate);
     }
 
+    // METODO MANCANTE PER RECUPERARE LA LISTA DI TUTTI GLI ITINERARI PENDING MODIFICA
+    public List<Itinerario> getItinerariPendingModifica() {
+        return this.itinerariPendingModifica;
+    }
+
     public boolean inComune(Coordinate coord) {
-        // Esempio di check su OSM.
-        // Rimasto come bozza.
         return true;
     }
 

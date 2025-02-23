@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ItinerarioController {
+
     @Autowired
     private POIRepository poiRepository;
     @Autowired
@@ -55,6 +56,24 @@ public class ItinerarioController {
         }
         Comune c = this.comuneRepository.findById(idComune).get();
         c.insertItinerarioModifica(it);
+        this.comuneRepository.save(c);
+    }
+
+    public void updateItinerarioDirect(Long idComune, UpdateItinerarioFD i, Long[] pois) {
+        Comune c = this.comuneRepository.findById(idComune).orElse(null);
+        if (c == null) return;
+        Itinerario original = c.getItinerario(i.getIdOriginalItinerario());
+        if(original == null) return;
+        original.setNome(i.getNome());
+        original.setDescrizione(i.getDescrizione());
+        if(i.getDataApertura()!=null && i.getDataChiusura()!=null){
+            original.setDataApertura(i.getDataApertura());
+            original.setDataChiusura(i.getDataChiusura());
+        }
+        original.getPOIs().clear();
+        for (Long poi : pois) {
+            original.addPOI(this.poiRepository.findById(poi).orElse(null));
+        }
         this.comuneRepository.save(c);
     }
 

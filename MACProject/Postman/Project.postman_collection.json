@@ -1,7 +1,7 @@
 {
 	"info": {
 	  "_postman_id": "d55e1189-89dd-4a56-88cf-87b1489484ec",
-	  "name": "Project - FINAL UPDATED",
+	  "name": "Project - FINAL UPDATED (No Edit POI/Contenuto)",
 	  "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 	  "_exporter_id": "31463869"
 	},
@@ -578,6 +578,126 @@
 		"response": []
 	  },
 	  {
+		"name": "deleteItinerario",
+		"request": {
+		  "method": "DELETE",
+		  "header": [],
+		  "body": {
+			"mode": "formdata",
+			"formdata": [
+			  {
+				"key": "idComune",
+				"value": "1",
+				"type": "text"
+			  },
+			  {
+				"key": "id",
+				"value": "1",
+				"type": "text"
+			  }
+			]
+		  },
+		  "url": "localhost:8080/comune/curatore/deleteItinerario"
+		},
+		"response": []
+	  },
+	  {
+		"name": "updateItinerarioPending",
+		"request": {
+		  "method": "POST",
+		  "header": [],
+		  "body": {
+			"mode": "formdata",
+			"formdata": [
+			  {
+				"key": "idComune",
+				"value": "1",
+				"type": "text"
+			  },
+			  {
+				"key": "updateItinerario",
+				"value": "{\n  \"idOriginalItinerario\": 1,\n  \"nome\": \"Nuovo Itinerario Pending\",\n  \"descrizione\": \"Descrizione aggiornata pending\"\n}",
+				"contentType": "application/json",
+				"type": "text"
+			  },
+			  {
+				"key": "pois",
+				"value": "1,2",
+				"type": "text"
+			  }
+			]
+		  },
+		  "url": "http://localhost:8080/comune/contributor/updateItinerarioPending"
+		},
+		"response": []
+	  },
+	  {
+		"name": "updateItinerarioDirect",
+		"request": {
+		  "method": "POST",
+		  "header": [],
+		  "body": {
+			"mode": "formdata",
+			"formdata": [
+			  {
+				"key": "idComune",
+				"value": "1",
+				"type": "text"
+			  },
+			  {
+				"key": "updateItinerario",
+				"value": "{\n  \"idOriginalItinerario\": 1,\n  \"nome\": \"Nuovo Itinerario Direct\",\n  \"descrizione\": \"Descrizione aggiornata direct\"\n}",
+				"contentType": "application/json",
+				"type": "text"
+			  },
+			  {
+				"key": "pois",
+				"value": "1,2",
+				"type": "text"
+			  }
+			]
+		  },
+		  "url": "http://localhost:8080/comune/acontributor/updateItinerarioDirect"
+		},
+		"response": []
+	  },
+	  {
+		"name": "viewAllItinerarioModificaPending",
+		"request": {
+		  "method": "GET",
+		  "header": [],
+		  "url": "http://localhost:8080/comune/curatore/viewAllItinerarioModificaPending"
+		},
+		"response": []
+	  },
+	  {
+		"name": "viewItinerarioModificaPending",
+		"request": {
+		  "method": "GET",
+		  "header": [],
+		  "url": "http://localhost:8080/comune/curatore/viewItinerarioModificaPending?idComune=1&idPending=99"
+		},
+		"response": []
+	  },
+	  {
+		"name": "approveItinerarioModifica",
+		"request": {
+		  "method": "PUT",
+		  "header": [],
+		  "url": "http://localhost:8080/comune/curatore/approveItinerarioModifica?idComune=1&idPending=99&idOriginal=1"
+		},
+		"response": []
+	  },
+	  {
+		"name": "rejectItinerarioModifica",
+		"request": {
+		  "method": "DELETE",
+		  "header": [],
+		  "url": "http://localhost:8080/comune/curatore/rejectItinerarioModifica?idComune=1&idPending=99"
+		},
+		"response": []
+	  },
+	  {
 		"name": "getAllPOIPending",
 		"protocolProfileBehavior": {
 		  "disableBodyPruning": true
@@ -731,59 +851,6 @@
 		"response": []
 	  },
 	  {
-		"name": "deleteItinerario",
-		"request": {
-		  "method": "DELETE",
-		  "header": [],
-		  "body": {
-			"mode": "formdata",
-			"formdata": [
-			  {
-				"key": "idComune",
-				"value": "1",
-				"type": "text"
-			  },
-			  {
-				"key": "id",
-				"value": "1",
-				"type": "text"
-			  }
-			]
-		  },
-		  "url": "localhost:8080/comune/curatore/deleteItinerario"
-		},
-		"response": []
-	  },
-	  {
-		"name": "deleteContenuto",
-		"request": {
-		  "method": "DELETE",
-		  "header": [],
-		  "body": {
-			"mode": "formdata",
-			"formdata": [
-			  {
-				"key": "idComune",
-				"value": "1",
-				"type": "text"
-			  },
-			  {
-				"key": "idPOI",
-				"value": "1",
-				"type": "text"
-			  },
-			  {
-				"key": "id",
-				"value": "1",
-				"type": "text"
-			  }
-			]
-		  },
-		  "url": "localhost:8080/comune/curatore/deleteContenuto"
-		},
-		"response": []
-	  },
-	  {
 		"name": "getAllContenutoPendingPOI",
 		"protocolProfileBehavior": {
 		  "disableBodyPruning": true
@@ -827,7 +894,7 @@
 				"type": "text"
 			  },
 			  {
-				"key": "id",
+				"key": "idContenuto",
 				"value": "2",
 				"type": "text"
 			  }
@@ -892,103 +959,6 @@
 			]
 		  },
 		  "url": "localhost:8080/comune/curatore/validazioneSelectContenuto"
-		},
-		"response": []
-	  },
-	  {
-		"name": "getAllItinerarioPending",
-		"protocolProfileBehavior": {
-		  "disableBodyPruning": true
-		},
-		"request": {
-		  "method": "GET",
-		  "header": [],
-		  "body": {
-			"mode": "formdata",
-			"formdata": [
-			  {
-				"key": "idComune",
-				"value": "1",
-				"type": "text"
-			  }
-			]
-		  },
-		  "url": "localhost:8080/comune/curatore/getAllItinerarioPending"
-		},
-		"response": []
-	  },
-	  {
-		"name": "viewItinerarioPending",
-		"protocolProfileBehavior": {
-		  "disableBodyPruning": true
-		},
-		"request": {
-		  "method": "GET",
-		  "header": [],
-		  "body": {
-			"mode": "formdata",
-			"formdata": [
-			  {
-				"key": "idComune",
-				"value": "1",
-				"type": "text"
-			  },
-			  {
-				"key": "id",
-				"value": "2",
-				"type": "text"
-			  }
-			]
-		  },
-		  "url": "localhost:8080/comune/curatore/viewItinerarioPending"
-		},
-		"response": []
-	  },
-	  {
-		"name": "validazioneSelectItinerario",
-		"request": {
-		  "method": "PUT",
-		  "header": [],
-		  "body": {
-			"mode": "formdata",
-			"formdata": [
-			  {
-				"key": "idComune",
-				"value": "1",
-				"type": "text"
-			  },
-			  {
-				"key": "id",
-				"value": "2",
-				"type": "text"
-			  }
-			]
-		  },
-		  "url": "localhost:8080/comune/curatore/validazioneSelectItinerario"
-		},
-		"response": []
-	  },
-	  {
-		"name": "deleteItinerarioPending",
-		"request": {
-		  "method": "DELETE",
-		  "header": [],
-		  "body": {
-			"mode": "formdata",
-			"formdata": [
-			  {
-				"key": "idComune",
-				"value": "1",
-				"type": "text"
-			  },
-			  {
-				"key": "id",
-				"value": "3",
-				"type": "text"
-			  }
-			]
-		  },
-		  "url": "localhost:8080/comune/curatore/deleteItinerarioPending"
 		},
 		"response": []
 	  },
@@ -1513,149 +1483,6 @@
 		  "method": "GET",
 		  "header": [],
 		  "url": "localhost:8080/utente/atourist/viewItinerariPreferiti"
-		},
-		"response": []
-	  },
-	  {
-		"name": "updatePOI",
-		"request": {
-		  "method": "POST",
-		  "header": [],
-		  "body": {
-			"mode": "formdata",
-			"formdata": [
-			  {
-				"key": "idComune",
-				"value": "1",
-				"type": "text"
-			  },
-			  {
-				"key": "updatePOI",
-				"value": "{\n  \"idOriginalPOI\": 2,\n  \"nome\": \"Nuovo Nome POI\",\n  \"descrizione\": \"Descrizione aggiornata\",\n  \"tipo\": \"LUOGO\",\n  \"coordinate\": {\n    \"latitudine\": \"43.0\",\n    \"longitudine\": \"13.0\"\n  }\n}",
-				"contentType": "application/json",
-				"type": "text"
-			  }
-			]
-		  },
-		  "url": "http://localhost:8080/comune/contributor/updatePOI"
-		},
-		"response": []
-	  },
-	  {
-		"name": "approveUpdatePOI",
-		"request": {
-		  "method": "PUT",
-		  "header": [],
-		  "url": "http://localhost:8080/comune/curatore/approveUpdatePOI?idComune=1&idPending=5&idOriginal=2"
-		},
-		"response": []
-	  },
-	  {
-		"name": "rejectUpdatePOI",
-		"request": {
-		  "method": "DELETE",
-		  "header": [],
-		  "url": "http://localhost:8080/comune/curatore/rejectUpdatePOI?idComune=1&idPending=5"
-		},
-		"response": []
-	  },
-	  {
-		"name": "updateContenuto",
-		"request": {
-		  "method": "POST",
-		  "header": [],
-		  "body": {
-			"mode": "formdata",
-			"formdata": [
-			  {
-				"key": "idComune",
-				"value": "1",
-				"type": "text"
-			  },
-			  {
-				"key": "idPOI",
-				"value": "2",
-				"type": "text"
-			  },
-			  {
-				"key": "updateContenuto",
-				"value": "{\n  \"idOriginalContenuto\": 4,\n  \"nome\": \"Nuovo nome contenuto\",\n  \"descrizione\": \"Nuova descrizione aggiornata\"\n}",
-				"contentType": "application/json",
-				"type": "text"
-			  },
-			  {
-				"key": "file",
-				"type": "file"
-			  }
-			]
-		  },
-		  "url": "http://localhost:8080/comune/contributor/updateContenuto"
-		},
-		"response": []
-	  },
-	  {
-		"name": "validazioneUpdateContenuto",
-		"request": {
-		  "method": "PUT",
-		  "header": [],
-		  "url": "http://localhost:8080/comune/curatore/validazioneUpdateContenuto?idComune=1&idPOI=2&idContenutoPending=10&idContenutoOriginale=4"
-		},
-		"response": []
-	  },
-	  {
-		"name": "rejectUpdateContenuto",
-		"request": {
-		  "method": "DELETE",
-		  "header": [],
-		  "url": "http://localhost:8080/comune/curatore/rejectUpdateContenuto?idComune=1&idPOI=2&idContenutoPending=10"
-		},
-		"response": []
-	  },
-	  {
-		"name": "updateItinerario",
-		"request": {
-		  "method": "POST",
-		  "header": [],
-		  "body": {
-			"mode": "formdata",
-			"formdata": [
-			  {
-				"key": "idComune",
-				"value": "1",
-				"type": "text"
-			  },
-			  {
-				"key": "updateItinerario",
-				"value": "{\n  \"idOriginalItinerario\": 1,\n  \"nome\": \"Nuovo Itinerario\",\n  \"descrizione\": \"Descrizione aggiornata\"\n}",
-				"contentType": "application/json",
-				"type": "text"
-			  },
-			  {
-				"key": "pois",
-				"value": "1,2",
-				"type": "text"
-			  }
-			]
-		  },
-		  "url": "http://localhost:8080/comune/contributor/updateItinerario"
-		},
-		"response": []
-	  },
-	  {
-		"name": "approveUpdateItinerario",
-		"request": {
-		  "method": "PUT",
-		  "header": [],
-		  "url": "http://localhost:8080/comune/curatore/approveUpdateItinerario?idComune=1&idPending=99&idOriginal=1"
-		},
-		"response": []
-	  },
-	  {
-		"name": "rejectUpdateItinerario",
-		"request": {
-		  "method": "DELETE",
-		  "header": [],
-		  "url": "http://localhost:8080/comune/curatore/rejectUpdateItinerario?idComune=1&idPending=99"
 		},
 		"response": []
 	  },
