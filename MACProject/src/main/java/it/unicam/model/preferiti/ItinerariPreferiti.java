@@ -6,17 +6,17 @@ import jakarta.persistence.*;
 
 @Entity
 public class ItinerariPreferiti {
+
     @EmbeddedId
     private IdItinerariPreferiti id;
 
-    @OneToOne
+    @ManyToOne
     @MapsId("idItinerario")
     private Itinerario itinerario;
 
     @ManyToOne
     @MapsId("idUtente")
     private UtenteAutenticato utente;
-
 
     public ItinerariPreferiti(Itinerario itinerario, UtenteAutenticato contributor) {
         this.itinerario = itinerario;
@@ -25,7 +25,6 @@ public class ItinerariPreferiti {
     }
 
     public ItinerariPreferiti() {
-
     }
 
     public UtenteAutenticato getUtente() {
@@ -40,6 +39,3 @@ public class ItinerariPreferiti {
         return id;
     }
 }
-
-
-
